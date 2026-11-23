@@ -1,0 +1,5 @@
+check,value
+Leads with a resolved channel,0.932
+Accuracy of resolved channels vs truth,1.0
+Bot sessions caught (recall),1.0
+Human sessions wrongly flagged as bots,0.0003

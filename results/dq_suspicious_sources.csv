@@ -1,0 +1,6 @@
+lead_source,captured_via,form_name,passed_routing,leads
+Direct,chat,Chat widget,false,1008
+Sales Inbound,form,Website form,true,624
+(blank),form,In-app request form,false,250
+Direct,form,Website form,false,162
+Sales Inbound,form,In-app request form,true,138

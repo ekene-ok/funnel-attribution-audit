@@ -1,0 +1,9 @@
+channel,reported_mqls,true_mqls,mql_undercount_factor,reported_pipeline,true_pipeline,share_of_pipeline_missing
+Paid search,144,290,2.01,655800.0,1500600.0,0.563
+In-app message,0,280,,0.0,1157900.0,1.0
+Email,121,223,1.84,475400.0,1005600.0,0.527
+Organic search,99,184,1.86,481500.0,805400.0,0.402
+Referral,70,127,1.81,435400.0,801500.0,0.457
+Direct,531,137,0.26,2321500.0,477900.0,-3.858
+Unresolved,0,102,,0.0,437500.0,1.0
+Paid social,35,65,1.86,89600.0,112100.0,0.201
