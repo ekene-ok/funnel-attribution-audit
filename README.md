@@ -55,6 +55,24 @@ Pipeline per 1,000 real (non-bot) sessions, after reattribution and deduplicatio
 
 Using the dashboard as it stands, a team would likely cut in-app messaging (apparently $0 pipeline) and credit "Direct" for results it did not drive. The corrected view says the opposite: in-app messaging is one of the two most productive channels per session.
 
+### What the audit is worth
+
+- **A bad decision avoided.** On the dashboard, in-app messaging shows $0 pipeline and is the obvious channel to cut. It actually drove **$1.16M, 18% of all pipeline**, at the second-highest value per session
+- **A clear first move for budget.** There is no spend data, so the audit asks how much more each channel could cost per session and still beat paid social on pipeline per dollar. Paid search can cost up to **12 times** as much per session, email 14 times, and referral 28 times. Paid social is the budget to move first; confirm with real costs per session before moving it
+- **One fix restores a quarter of the pipeline.** Passing campaign tags through the chat widget would correctly credit $1.70M (27% of pipeline)
+
+| Channel | Pipeline per 1,000 real sessions | Could cost this many times more per session than paid social and still win |
+|---|---|---|
+| Referral | $66,016 | 28.2x |
+| In-app message | $64,788 | 27.7x |
+| Email | $33,721 | 14.4x |
+| Paid search | $28,026 | 12.0x |
+| Direct | $13,406 | 5.7x |
+| Organic search | $11,112 | 4.8x |
+| Paid social | $2,337 | 1.0x |
+
+Source: [`sql/07_budget_breakeven.sql`](sql/07_budget_breakeven.sql)
+
 ## How the audit works
 
 All logic is SQL in [`sql/`](sql), run in order:
@@ -65,6 +83,7 @@ All logic is SQL in [`sql/`](sql), run in order:
 4. [`04_reconstruct.sql`](sql/04_reconstruct.sql): rebuild each lead's real channel from its first web session (`QUALIFY ROW_NUMBER() OVER (PARTITION BY visitor_id ...)`), drop duplicates, and label each lead's attribution status. Leads that cannot be linked are marked "Unresolved" rather than guessed
 5. [`05_reconciliation.sql`](sql/05_reconciliation.sql): reported vs real MQLs and pipeline by channel, and pipeline by root cause
 6. [`06_corrected_funnel.sql`](sql/06_corrected_funnel.sql): the funnel by channel with bots removed and real channels applied
+7. [`07_budget_breakeven.sql`](sql/07_budget_breakeven.sql): how much more each channel could cost per session and still beat paid social
 
 **Validation against ground truth** ([`results/validation.csv`](results/validation.csv)):
 

@@ -11,7 +11,7 @@ con.execute(f"SET file_search_path = '{ROOT}'")
 for f in sorted((ROOT / "sql").glob("*.sql")):
     con.execute(f.read_text())
 VIEWS = ["reported_by_source", "dq_suspicious_sources", "dq_duplicates", "dq_bots_by_channel", "dq_linkage",
-         "reconciliation_by_channel", "misattribution_root_causes", "corrected_funnel"]
+         "reconciliation_by_channel", "misattribution_root_causes", "corrected_funnel", "budget_breakeven"]
 for v in VIEWS:
     con.sql(f"SELECT * FROM {v}").write_csv(str(OUT / f"{v}.csv"))
 
