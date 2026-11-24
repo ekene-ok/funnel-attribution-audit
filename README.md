@@ -35,7 +35,7 @@ The dataset is synthetic but realistic. It is generated with five common trackin
 
 ## Charts
 
-![Reports show none of the pipeline from in-app messages](charts/01_pipeline_missing_by_channel.png)
+![The dashboard shows none of the $1.16M pipeline from in-app messages](charts/01_pipeline_missing_by_channel.png)
 
 ![Only 38% of pipeline is credited to the right channel](charts/02_root_causes.png)
 
